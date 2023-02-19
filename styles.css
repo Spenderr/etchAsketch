@@ -1,0 +1,32 @@
+body
+{
+    margin: 0;
+    background: black;
+}
+
+header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color:black;
+    color: cyan;
+    border-bottom:solid 10px aliceblue;
+}
+
+box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.board
+{
+    border: solid 10px rgb(5, 62, 168);    
+    display: grid;
+    text-align: center;
+    gap:2px;
+    margin-top: 10%;
+    
+}
