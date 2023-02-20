@@ -30,3 +30,11 @@ box
     margin-top: 10%;
     
 }
+#dummy
+{
+    padding: 2px;
+    border:solid 10px floralwhite;
+}
+#dummy:hover{
+    border-color: cyan;
+}
