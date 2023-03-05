@@ -9,7 +9,7 @@ function generateBoard(rows,columns){
 for(let r = 0;r < rows;r++){
     for(let c = 0;c < columns;c++){
         column = document.createElement('div');
-        column.setAttribute('style',`border:solid 10px white; height :calc(100% / ${rows}); width :calc(100% / ${columns}`);
+        column.setAttribute('style',`border:solid 10px white;background:white; heigth:calc(100%,${rows});width:calc(100%,${columns})`);
         
         
         
@@ -19,7 +19,8 @@ for(let r = 0;r < rows;r++){
     }
     
 }
-board.setAttribute('style',`grid-template-columns:repeat(${columns},1fr);`);
+board.setAttribute('style',`grid-area:1 / 1 / span${columns}/span${rows}`);
+board.setAttribute('style',`grid-template-columns:repeat(${columns},1fr);grid-template-rows:repeat(${rows},1fr);`);
 }
 generateBoard(rows,columns);
 
@@ -39,3 +40,9 @@ document.addEventListener('mouseover',e=> {
 }
 
 select();
+
+
+//----------SELECTING THE COLOR----------//
+
+
+
