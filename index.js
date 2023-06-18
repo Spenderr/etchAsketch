@@ -25,24 +25,49 @@ board.setAttribute('style',`grid-template-columns:repeat(${columns},1fr);grid-te
 generateBoard(rows,columns);
 
 
-//----------COLORING THE BOARD----------//
+//----------COLORING THE BOARD----------//while mouse is down
 
+var penColor;
 var selected = null; 
 const reg = /sqr/;
-function select(){
-document.addEventListener('mouseover',e=> {
-    selected = e.target;
-    console.log(selected);
-    selected = document.getElementById(selected.id);
-    if(selected != null && reg.test(selected.id))
-        selected.setAttribute('style','background-color:orange');
-});
+
+let isMouseDown = false;
+
+function color(coloring) {
+  document.addEventListener('mousedown', () => {
+    isMouseDown = true;
+  });
+
+  document.addEventListener('mouseup', () => {
+    isMouseDown = false;
+  });
+
+  document.addEventListener('mouseover', (e) => {
+    if (isMouseDown) {
+      selected = e.target;
+      selected = document.getElementById(selected.id);
+      if (selected != null && reg.test(selected.id)) {
+        selected.setAttribute('style', `background-color:${coloring}`);
+      }
+      console.log("color:" + coloring);
+    }
+  });
 }
 
-select();
+color(penColor);
+
+
+
 
 
 //----------SELECTING THE COLOR----------//
+
+const palet = document.getElementsByClassName('palet')[0];
+
+palet.addEventListener('input', (e) => {
+  penColor = e.target.value;
+  color(penColor);
+});
 
 
 
